@@ -1,0 +1,41 @@
+[project]
+name = "pypssfss"
+version = "0.1.0"
+description = "Python wrapper for Julia package PSSFSS - Analysis of Polarization and Frequency Selective Surfaces"
+readme = "README.md"
+authors = [
+    { name = "Peter Simon", email = "psimon0420@gmail.com" }
+]
+keywords = [
+    "python",
+    "Julia",
+    "PSSFSS",
+    "FSS",
+    "Frequency Selective Surface",
+    "Polarization Selective Surface",
+    "metasurface",
+    "electromagnetics",
+    "computational electromagnetics",
+    "RF",
+    "antenna",
+    "microwave"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    "juliacall~=0.9.24",
+    "matplotlib~=3.10.1",
+    "numpy~=2.2.4",
+    "rich~=14.0.0",
+]
+requires-python = ">=3.13"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
