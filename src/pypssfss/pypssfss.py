@@ -30,6 +30,7 @@ import numpy as np
 import juliacall
 from juliacall import Main as jl
 
+
 # Set up the Julia Main module:
 jl.seval('using PSSFSS')
 jl.seval('using REPL: REPL')
@@ -39,6 +40,21 @@ from juliacall import convert, VectorValue, ArrayValue
 
 # Definitions of Layers
 def Layer(**kwargs):
+    """
+    Python wrapper for the Layer constructor method of the Julia PSSFSS package.
+
+    Differences from the Julia version:
+    - Layer widths must be expressed as a number (i.e. a literal number or numeric variable) multiplied
+      by a length unit using an explicit asterisk.  Examples:
+
+          - `width = 10*mm`
+          - `width = 0.1*inch`
+          - `w = 0.03; width = w*cm`
+          - `w = 0.03*cm; width = w`
+
+    For detailed documentation from the Julia version, type doc(Layer) or see 
+    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Layers.Layer
+    """
     return jl.Layer(**kwargs)
 
 # Definitions of Sheets:
@@ -55,7 +71,7 @@ def analyze(strata: list,
             steering: ThetaPhi | PhiTheta | Psi1Psi2 | Psi2Psi1,
             **kwargs):
     """
-    Python wrapper for the analyze function of the PSSFSS package.
+    Python wrapper for the analyze function of the Julia PSSFSS package.
 
     Differences from the Julia version:
     - Named tuples containing the steering parameters must be created using the ThetaPhi, PhiTheta,
@@ -89,6 +105,7 @@ def analyze(strata: list,
         v2 = convert(jl.Vector, np.array(steering[1]))
 
     jlsteering = jl.seval(f'({f1}={v1}, {f2}={v2})')
+    
     return jl.analyze(jlstrata, flist, jlsteering, **kwargs)
 
 
@@ -101,6 +118,12 @@ def atoutputs(string: str) -> tuple:
     The atoutputs function accepts arguments to be passed to @outputs in the form of a 
     single string.  E.g. 
         outrequests = atoutputs('FGHz theta s21dB(L,v) s21dB(R,V)')
+
+    All of the `@outputs` parameters listed in the Julia PSSFSS documentation at
+    https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Table-of-Valid-@outputs-Parameters
+    are available to use in the atoutputs function except for those that return complex 
+    values: s11, s12, s21, and s22.  Instead, one should request the real and imaginary parts
+    (or the magnitude and phase) separately and combine these to form the desired complex value.
     """
     return jl.seval('@outputs ' + string)
 
