@@ -22,4 +22,3 @@ def test_pypssfss():
     assert f[0] == fghz, "Bad frequency"
     assert math.isclose(s11db[0], -7.92209513, abs_tol=1e-8)
     assert math.isclose(s11ang[0], -131.16817847, abs_tol=1e-8)
-
