@@ -1,11 +1,12 @@
 # pypssfss
 
-Python wrapper for the Julia [`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) package.  
-It is not necessary to preinstall Julia or `PSSFSS` before using `pypssfss`.  If Julia is not found in your PATH, then
+Python wrapper for the Julia [`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) package. Allows Python
+programmers to access all of the power of `PSSFSS` from a pure Python script. Note that 
+it is not necessary to preinstall Julia or `PSSFSS` before using `pypssfss`.  If Julia is not found in your PATH, then
 `pypssfss` will install it (locally to a virtual environment, if one is active).  Similarly, it will automatically install
 `PSSFSS` on first use.
 
-[`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) is a Julia package for analyzing planar 
+[`pypssfss`] is a package for analyzing planar 
 [polarization selective surfaces](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=polarization+selective+surface&btnG=) (PSSs), [frequency selective surfaces](https://en.wikipedia.org/wiki/Frequency_selective_surface) (FSSs), 
 [reflectarray](https://en.wikipedia.org/wiki/Reflectarray_antennahttps://en.wikipedia.org/wiki/Reflectarray_antenna) elements, 
 [radomes](https://en.wikipedia.org/wiki/Radome), and similar structures.  It is intended to be useful to antenna design engineers and others who work in applied electromagnetic engineering.
@@ -13,7 +14,7 @@ It is not necessary to preinstall Julia or `PSSFSS` before using `pypssfss`.  If
 The user specifies the geometry to be analyzed as a `list` containing two or more dielectric `Layer`s 
 and zero or more `RWGSheet` objects that define the PSS/FSS surfaces.  Due to the included `plot_sheet` function, 
 the surface triangulations can be conveniently visualized using the standard 
-[`Matplotlib`](https://matplotlib.org/stable/index.html) library After also specifying the scan angles or
+[`Matplotlib`](https://matplotlib.org/stable/index.html) library. After also specifying the scan angles or
 unit cell incremental phasings, frequencies to be analyzed, the user then invokes the `analyze` function 
 to perform the analysis.  Post-processing and plotting of results can be performed in the same Python analysis script.
 
@@ -70,7 +71,3 @@ git clone https://github.com/simonp0420/pypssfss.git
 cd pypssfss
 pip install .
 ```
-
-
-
-
