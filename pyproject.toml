@@ -30,11 +30,12 @@ classifiers = [
 ]
 dependencies = [
     "juliacall~=0.9.24",
-    "matplotlib~=3.10.1",
-    "numpy~=2.2.4",
+    "juliapkg~=0.1.16",
+    "matplotlib~=3.9",
+    "numpy~=2.0",
     "rich~=14.0.0",
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 
 [build-system]
 requires = ["hatchling"]
@@ -45,3 +46,6 @@ dev = [
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
