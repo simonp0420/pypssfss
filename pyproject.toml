@@ -31,7 +31,7 @@ classifiers = [
 dependencies = [
     "juliacall~=0.9.24",
     "juliapkg~=0.1.16",
-    "matplotlib~=3.10.1",
+    "matplotlib~=3.9",
     "numpy~=2.2.4",
     "rich~=14.0.0",
 ]
