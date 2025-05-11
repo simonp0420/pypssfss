@@ -48,3 +48,5 @@ def setup(sphinx):
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
+
+nb_execution_timeout = 1200  # Increase timeout to 1200 seconds
