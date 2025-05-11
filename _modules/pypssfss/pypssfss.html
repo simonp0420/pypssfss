@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pypssfss.pypssfss &mdash; pypssfss 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pypssfss
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pypssfss</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pypssfss.pypssfss</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pypssfss.pypssfss</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is the pypssfss module.</span>
+
+<span class="sd">It provides Python wrappers for Julia&#39;s PSSFSS package, including functions for analyzing strata,</span>
+<span class="sd">extracting results, and converting data formats. </span>
+
+<span class="sd">Available functions:</span>
+
+<span class="sd">- analyze</span>
+<span class="sd">- atoutputs</span>
+<span class="sd">- doc</span>
+<span class="sd">- extract_result</span>
+<span class="sd">- Layer</span>
+<span class="sd">- res2tep</span>
+<span class="sd">- res2fresnel</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">juliapkg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">jp</span>
+<span class="n">jp</span><span class="o">.</span><span class="n">require_julia</span><span class="p">(</span><span class="s1">&#39;1.10&#39;</span><span class="p">)</span>
+<span class="n">jp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;PSSFSS&#39;</span><span class="p">,</span> <span class="s1">&#39;6b20a5d4-3c6c-44cd-883b-1480592d72be&#39;</span><span class="p">)</span>
+<span class="n">jp</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="c1"># Invoke julia with the &quot;-t auto&quot; option:</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PYTHON_JULIACALL_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;PYTHON_JULIACALL_HANDLE_SIGNALS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;no&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">juliacall</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">juliacall</span><span class="w"> </span><span class="kn">import</span> <span class="n">Main</span> <span class="k">as</span> <span class="n">jl</span>
+
+
+<span class="c1"># Set up the Julia Main module:</span>
+<span class="n">jl</span><span class="o">.</span><span class="n">seval</span><span class="p">(</span><span class="s1">&#39;using PSSFSS&#39;</span><span class="p">)</span>
+<span class="n">jl</span><span class="o">.</span><span class="n">seval</span><span class="p">(</span><span class="s1">&#39;using REPL: REPL&#39;</span><span class="p">)</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">juliacall</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert</span><span class="p">,</span> <span class="n">VectorValue</span><span class="p">,</span> <span class="n">ArrayValue</span>
+
+<span class="c1"># Definitions of Layers</span>
+<div class="viewcode-block" id="Layer">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.Layer">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">Layer</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Python wrapper for the Layer constructor method of the Julia PSSFSS package.</span>
+
+<span class="sd">    Differences from the Julia version:</span>
+
+<span class="sd">    - Layer widths must be expressed as a number (i.e. a literal number or numeric variable) multiplied</span>
+<span class="sd">      by a length unit using an explicit asterisk.  Examples:</span>
+
+<span class="sd">          - `width = 10*mm`</span>
+<span class="sd">          - `width = 0.1*inch`</span>
+<span class="sd">          - `w = 0.03; width = w*cm`</span>
+<span class="sd">          - `w = 0.03*cm; width = w`</span>
+
+<span class="sd">    For detailed documentation from the Julia version, type doc(Layer) or see </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Layers.Layer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jl</span><span class="o">.</span><span class="n">Layer</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<span class="c1"># Definitions of Sheets:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.sheets</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">diagstrip</span><span class="p">,</span> <span class="n">jerusalemcross</span><span class="p">,</span> <span class="n">loadedcross</span><span class="p">,</span> <span class="n">manji</span><span class="p">,</span>
+                     <span class="n">meander</span><span class="p">,</span> <span class="n">pecsheet</span><span class="p">,</span> <span class="n">pixels</span><span class="p">,</span> <span class="n">plot_sheet</span><span class="p">,</span> <span class="n">pmcsheet</span><span class="p">,</span> <span class="n">polyring</span><span class="p">,</span>
+                     <span class="n">rectstrip</span><span class="p">,</span> <span class="n">sinuous</span><span class="p">,</span> <span class="n">splitring</span><span class="p">,</span> <span class="n">sympixels</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">cm</span><span class="p">,</span> <span class="n">inch</span><span class="p">,</span> <span class="n">mil</span><span class="p">,</span> <span class="n">RWGSheet</span><span class="p">)</span>
+
+<span class="c1"># Steering definitions:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.steering</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThetaPhi</span><span class="p">,</span> <span class="n">PhiTheta</span><span class="p">,</span> <span class="n">Psi1Psi2</span><span class="p">,</span> <span class="n">Psi2Psi1</span> 
+
+<span class="c1"># Implementation of the analyze function in Python:</span>
+<div class="viewcode-block" id="analyze">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.analyze">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="n">strata</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+            <span class="n">flist</span><span class="p">,</span>
+            <span class="n">steering</span><span class="p">:</span> <span class="n">ThetaPhi</span> <span class="o">|</span> <span class="n">PhiTheta</span> <span class="o">|</span> <span class="n">Psi1Psi2</span> <span class="o">|</span> <span class="n">Psi2Psi1</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Python wrapper for the `analyze` function of the Julia PSSFSS package.</span>
+
+<span class="sd">    Differences from the Julia version:</span>
+
+<span class="sd">    - Named tuples containing the steering parameters must be created using the `ThetaPhi`, `PhiTheta`,</span>
+<span class="sd">      `Psi1Psi2`, or `Psi2Psi1` functions.</span>
+
+<span class="sd">    For detailed documentation from the Julia version, type `doc(analyze)` or see </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Avoid mutating strata:</span>
+    <span class="n">strata</span> <span class="o">=</span> <span class="n">strata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Need to convert any RWGSheet elements sheet to sheet.jRWGSheet</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">strata</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">RWGSheet</span><span class="p">):</span>
+            <span class="n">strata</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">jRWGSheet</span>
+
+    <span class="c1"># Convert strata Python vector to a Julia vector:</span>
+    <span class="n">jlstrata</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">jl</span><span class="o">.</span><span class="n">Vector</span><span class="p">,</span> <span class="n">strata</span><span class="p">)</span>
+
+    <span class="c1"># Convert steering from a Python named tuple to a Julia named tuple:</span>
+    <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">steering</span><span class="o">.</span><span class="n">_fields</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">steering</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">steering</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">jl</span><span class="o">.</span><span class="n">Vector</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">steering</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">steering</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">steering</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">jl</span><span class="o">.</span><span class="n">Vector</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">steering</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="n">jlsteering</span> <span class="o">=</span> <span class="n">jl</span><span class="o">.</span><span class="n">seval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="n">f1</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">v1</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">f2</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">v2</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">jl</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">jlstrata</span><span class="p">,</span> <span class="n">flist</span><span class="p">,</span> <span class="n">jlsteering</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># Simulate the Julia @outputs macro with a Python function:</span>
+<div class="viewcode-block" id="atoutputs">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.atoutputs">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">atoutputs</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper function for the @outputs macro of the Julia PSSFSS package.  See the Outputs</span>
+<span class="sd">    section of the PSSFSS user manual at </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Outputs for details of usage.</span>
+<span class="sd">    The atoutputs function accepts arguments to be passed to @outputs in the form of a </span>
+<span class="sd">    single string.  E.g. </span>
+
+<span class="sd">        outrequests = atoutputs(&#39;FGHz theta s21dB(L,v) s21dB(R,V)&#39;)</span>
+
+<span class="sd">    All of the `@outputs` parameters listed in the Julia PSSFSS documentation at</span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Table-of-Valid-@outputs-Parameters</span>
+<span class="sd">    are available to use in the atoutputs function except for those that return complex </span>
+<span class="sd">    values: s11, s12, s21, and s22.  Instead, one should request the real and imaginary parts</span>
+<span class="sd">    (or the magnitude and phase) separately and combine these to form the desired complex value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">jl</span><span class="o">.</span><span class="n">seval</span><span class="p">(</span><span class="s1">&#39;@outputs &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="extract_result">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.extract_result">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_result</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">VectorValue</span> <span class="o">|</span> <span class="n">ArrayValue</span><span class="p">,</span> <span class="n">outreq</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper function for the Julia PSSFSS extract_result function.  Returns a numpy array.</span>
+<span class="sd">    For detailed documentation, type `doc(extract_result)` or see the Julia PSSFSS version </span>
+<span class="sd">    documentation at </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.extract_result</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">jl</span><span class="o">.</span><span class="n">extract_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">outreq</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">outputs</span></div>
+
+
+<span class="c1"># Python wrapper for res2tep:</span>
+<div class="viewcode-block" id="res2tep">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.res2tep">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">res2tep</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">VectorValue</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tepfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;tep&quot;</span><span class="p">,</span> <span class="n">clas</span><span class="o">=</span><span class="s2">&quot;res2tep&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper function for the Julia PSSFSS res2tep function.  Creates a Ticra-compatible</span>
+<span class="sd">    TEP file from a PSSFSS result file, or from the vector of results returned by the </span>
+<span class="sd">    analyze function. For detailed documentation, type doc(res2tep) or see the Julia PSSFSS</span>
+<span class="sd">    version documentation at </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2tep</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwdict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="n">clas</span><span class="p">}</span>
+    <span class="n">jl</span><span class="o">.</span><span class="n">res2tep</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">tepfile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwdict</span><span class="p">)</span></div>
+
+
+<span class="c1"># Python wrapper res2fresnel:</span>
+<div class="viewcode-block" id="res2fresnel">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.res2fresnel">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">res2fresnel</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">VectorValue</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tepfile</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper function for the Julia PSSFSS `res2fresnel` function.  Creates an HFSS SBR+-compatible</span>
+<span class="sd">    Fresnel table from a PSSFSS result file, or from the vector of results returned by the </span>
+<span class="sd">    analyze function. For detailed documentation, type doc(res2fresnel) or see the Julia PSSFSS</span>
+<span class="sd">    version documentation at </span>
+<span class="sd">    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2fresnel</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">jl</span><span class="o">.</span><span class="n">res2fresnel</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">tepfile</span><span class="p">)</span></div>
+
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.console</span><span class="w"> </span><span class="kn">import</span> <span class="n">Console</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.markdown</span><span class="w"> </span><span class="kn">import</span> <span class="n">Markdown</span>
+<span class="n">console</span> <span class="o">=</span> <span class="n">Console</span><span class="p">()</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">types</span>
+
+<span class="c1"># Documentation function to print markdown formatted Julia docstrings</span>
+<div class="viewcode-block" id="doc">
+<a class="viewcode-back" href="../../autoapi/pypssfss/index.html#pypssfss.doc">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">doc</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Pretty-print the Julia markdown documentation for a wrapped function to the user&#39;s console. For example,</span>
+<span class="sd">    typing </span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; import pypssfss as pf</span>
+<span class="sd">    &gt;&gt;&gt; pf.doc(pf.analyze)</span>
+<span class="sd">     </span>
+<span class="sd">    will generate a richly formatted printout of the Julia PSSFSS analyze function to the user&#39;s console.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">pssfss_fnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;analyze&#39;</span><span class="p">,</span> <span class="s1">&#39;diagstrip&#39;</span><span class="p">,</span> <span class="s1">&#39;extract_result&#39;</span><span class="p">,</span> <span class="s1">&#39;jerusalemcross&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer&#39;</span><span class="p">,</span> <span class="s1">&#39;loadedcross&#39;</span><span class="p">,</span> 
+                     <span class="s1">&#39;manji&#39;</span><span class="p">,</span> <span class="s1">&#39;meander&#39;</span><span class="p">,</span> <span class="s1">&#39;pecsheet&#39;</span><span class="p">,</span> <span class="s1">&#39;pixels&#39;</span><span class="p">,</span> <span class="s1">&#39;pmcsheet&#39;</span><span class="p">,</span> <span class="s1">&#39;polyring&#39;</span><span class="p">,</span> <span class="s1">&#39;rectstrip&#39;</span><span class="p">,</span> 
+                     <span class="s1">&#39;res2fresnel&#39;</span><span class="p">,</span> <span class="s1">&#39;res2tep&#39;</span><span class="p">,</span> <span class="s1">&#39;sinuous&#39;</span><span class="p">,</span> <span class="s1">&#39;splitring&#39;</span><span class="p">,</span> <span class="s1">&#39;sympixels&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">)</span> <span class="ow">and</span> <span class="n">arg</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">in</span> <span class="n">pssfss_fnames</span><span class="p">:</span>
+         <span class="n">name</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">RWGSheet</span><span class="p">):</span>
+         <span class="n">name</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">style</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+         <span class="n">console</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">jl</span><span class="o">.</span><span class="n">seval</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;repr(REPL.doc(</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">))&#39;</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+            <span class="n">help</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Peter S. Simon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

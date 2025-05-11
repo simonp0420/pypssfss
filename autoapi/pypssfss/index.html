@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pypssfss &mdash; pypssfss 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="API Reference" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pypssfss
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pypssfss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.analyze"><code class="docutils literal notranslate"><span class="pre">analyze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.atoutputs"><code class="docutils literal notranslate"><span class="pre">atoutputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.diagstrip"><code class="docutils literal notranslate"><span class="pre">diagstrip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.doc"><code class="docutils literal notranslate"><span class="pre">doc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.extract_result"><code class="docutils literal notranslate"><span class="pre">extract_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.jerusalemcross"><code class="docutils literal notranslate"><span class="pre">jerusalemcross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.Layer"><code class="docutils literal notranslate"><span class="pre">Layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.loadedcross"><code class="docutils literal notranslate"><span class="pre">loadedcross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.manji"><code class="docutils literal notranslate"><span class="pre">manji()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.meander"><code class="docutils literal notranslate"><span class="pre">meander()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.pecsheet"><code class="docutils literal notranslate"><span class="pre">pecsheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.pixels"><code class="docutils literal notranslate"><span class="pre">pixels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.plot_sheet"><code class="docutils literal notranslate"><span class="pre">plot_sheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.pmcsheet"><code class="docutils literal notranslate"><span class="pre">pmcsheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.polyring"><code class="docutils literal notranslate"><span class="pre">polyring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.rectstrip"><code class="docutils literal notranslate"><span class="pre">rectstrip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.res2fresnel"><code class="docutils literal notranslate"><span class="pre">res2fresnel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.res2tep"><code class="docutils literal notranslate"><span class="pre">res2tep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.sinuous"><code class="docutils literal notranslate"><span class="pre">sinuous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.splitring"><code class="docutils literal notranslate"><span class="pre">splitring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pypssfss.sympixels"><code class="docutils literal notranslate"><span class="pre">sympixels()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pypssfss</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">API Reference</a></li>
+      <li class="breadcrumb-item active">pypssfss</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/pypssfss/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pypssfss">
+<span id="pypssfss"></span><h1>pypssfss<a class="headerlink" href="#module-pypssfss" title="Link to this heading"></a></h1>
+<p>Python wrapper for Julia’s PSSFSS package</p>
+<p>This package provides Python wrappers for Julia’s PSSFSS package, enabling functionality for analyzing radomes,
+frequency selective surfaces, polarization selective surfaces, metasurfaces, reflectarray elements, and similar
+structures.</p>
+<p>It is not necessary to install Julia prior to using this package.  If Julia is not in the user’s path
+then it will be installed automatically.  If pypssfss is installed in a Python virtual environment, then the Julia
+installation will also be private to that environment. Similarly, PSSFSS will be automatically installed, if required.</p>
+<p><strong>The extensive documentation of PSSFSS at https://simonp0420.github.io/PSSFSS.jl/stable is required reading
+in order to use this package effectively.</strong></p>
+<p>Important differences in the pypssfss wrapper package compared to the Julia PSSFSS package:</p>
+<ul class="simple">
+<li><p>Since Python lacks built-in named tuples, steering is specified by calling one of the functions ThetaPhi, PhiTheta, Psi1Psi2,
+or Psi2Psi1.</p></li>
+<li><p>Since Python doesn’t have macros, the &#64;outputs macro functionality of PSSFSS is replaced by the atoutputs function in Python.</p></li>
+<li><p>Plotting of sheet triangulations from Python is done via the plot_sheet function exported by this package.</p></li>
+</ul>
+<p>The extensive Julia markdown-formatted help strings for wrapped Julia functions can be pretty-printed to the user’s
+console using the doc function exported by this package.  E.g. <cite>doc(analyze)</cite> or <cite>doc(diagstrip)</cite>. <strong>This Julia documentation
+available via the doc function is essential for intelligently using the Python package.</strong></p>
+<p>Modules:</p>
+<ul class="simple">
+<li><p>pypssfss: Core functionality and wrappers</p></li>
+<li><p>sheets: Sheet definitions and plotting</p></li>
+<li><p>steering: Steering definitions</p></li>
+</ul>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.analyze">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strata</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pypssfss.steering.ThetaPhi</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">pypssfss.steering.PhiTheta</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">pypssfss.steering.Psi1Psi2</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">pypssfss.steering.Psi2Psi1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.analyze" title="Link to this definition"></a></dt>
+<dd><p>Python wrapper for the <cite>analyze</cite> function of the Julia PSSFSS package.</p>
+<p>Differences from the Julia version:</p>
+<ul class="simple">
+<li><p>Named tuples containing the steering parameters must be created using the <cite>ThetaPhi</cite>, <cite>PhiTheta</cite>,
+<cite>Psi1Psi2</cite>, or <cite>Psi2Psi1</cite> functions.</p></li>
+</ul>
+<p>For detailed documentation from the Julia version, type <cite>doc(analyze)</cite> or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.atoutputs">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">atoutputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#atoutputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.atoutputs" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the &#64;outputs macro of the Julia PSSFSS package.  See the Outputs
+section of the PSSFSS user manual at
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Outputs">https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Outputs</a> for details of usage.
+The atoutputs function accepts arguments to be passed to &#64;outputs in the form of a
+single string.  E.g.</p>
+<blockquote>
+<div><p>outrequests = atoutputs(‘FGHz theta s21dB(L,v) s21dB(R,V)’)</p>
+</div></blockquote>
+<p>All of the <cite>&#64;outputs</cite> parameters listed in the Julia PSSFSS documentation at
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Table-of-Valid-&#64;outputs-Parameters">https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Table-of-Valid-&#64;outputs-Parameters</a>
+are available to use in the atoutputs function except for those that return complex
+values: s11, s12, s21, and s22.  Instead, one should request the real and imaginary parts
+(or the magnitude and phase) separately and combine these to form the desired complex value.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.diagstrip">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">diagstrip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#diagstrip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.diagstrip" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS diagstrip constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(diagstrip), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.diagstrip">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.diagstrip</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.doc">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">doc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#doc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.doc" title="Link to this definition"></a></dt>
+<dd><p>Pretty-print the Julia markdown documentation for a wrapped function to the user’s console. For example,
+typing</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span><span class="o">.</span><span class="n">doc</span><span class="p">(</span><span class="n">pf</span><span class="o">.</span><span class="n">analyze</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will generate a richly formatted printout of the Julia PSSFSS analyze function to the user’s console.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.extract_result">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">extract_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">juliacall.VectorValue</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">juliacall.ArrayValue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outreq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.array</span></span></span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#extract_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.extract_result" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS extract_result function.  Returns a numpy array.
+For detailed documentation, type <cite>doc(extract_result)</cite> or see the Julia PSSFSS version
+documentation at
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.extract_result">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.extract_result</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.jerusalemcross">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">jerusalemcross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#jerusalemcross"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.jerusalemcross" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS jerusalemcross constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(jerusalemcross), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.jerusalemcross">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.jerusalemcross</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.Layer">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#Layer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.Layer" title="Link to this definition"></a></dt>
+<dd><p>Python wrapper for the Layer constructor method of the Julia PSSFSS package.</p>
+<p>Differences from the Julia version:</p>
+<ul>
+<li><p>Layer widths must be expressed as a number (i.e. a literal number or numeric variable) multiplied
+by a length unit using an explicit asterisk.  Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>width = 10*mm</cite></p></li>
+<li><p><cite>width = 0.1*inch</cite></p></li>
+<li><p><cite>w = 0.03; width = w*cm</cite></p></li>
+<li><p><cite>w = 0.03*cm; width = w</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>For detailed documentation from the Julia version, type doc(Layer) or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Layers.Layer">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Layers.Layer</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.loadedcross">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">loadedcross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#loadedcross"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.loadedcross" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS loadedcross constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(loadedcross), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.loadedcross">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.loadedcross</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.manji">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">manji</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#manji"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.manji" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS manji constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(manji), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.manji">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.manji</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.meander">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">meander</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#meander"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.meander" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS meander constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(meander), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.meander">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.meander</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.pecsheet">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">pecsheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#pecsheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.pecsheet" title="Link to this definition"></a></dt>
+<dd><p>Return a variable of type RWGSheet that contains a perfect electric conducting sheet (i.e. an “E-wall”).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.pixels">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">pixels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#pixels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.pixels" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS pixels constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(pixels), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.pixels">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.pixels</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.plot_sheet">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">plot_sheet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sheet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgenumbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facenumbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodenumbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodecolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitcellcolor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitcell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#plot_sheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.plot_sheet" title="Link to this definition"></a></dt>
+<dd><p>Plot an RWGSheet object using Matplotlib.  This function must be followed by a call to matplotlib.pyplot.show()
+to make the plot visible.</p>
+<dl class="simple">
+<dt>Parameters (all but <cite>sheet</cite> are optional keyword arguments):</dt><dd><dl class="simple">
+<dt>sheet: RWGSheet</dt><dd><p>The sheet object to plot.</p>
+</dd>
+<dt>edges=True, faces=False, nodes=False: bool</dt><dd><p>Whether to plot edges, faces, or nodes.</p>
+</dd>
+<dt>edgenumbers=False, facenumbers=False, nodenumbers=False: bool</dt><dd><p>Whether to annotate edges, faces, or nodes with their indices.</p>
+</dd>
+<dt>edgecolor=’red’, facecolor=’red’, nodecolor=’black’, unitcellcolor=’blue’: str,</dt><dd><p>Colors to use for the plotted items.</p>
+</dd>
+<dt>unitcell=False: bool</dt><dd><p>Whether to plot the unit cell boundary.</p>
+</dd>
+<dt>rep: tuple</dt><dd><p>A 2-tuple of positive integers giving the number of repetitions to display in the two periodic directions.</p>
+</dd>
+<dt>fontsize: int</dt><dd><p>Font size for annotations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.pmcsheet">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">pmcsheet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#pmcsheet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.pmcsheet" title="Link to this definition"></a></dt>
+<dd><p>Return a variable of type RWGSheet that contains a perfect magnetic conducting sheet (i.e. an “H-wall”).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.polyring">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">polyring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#polyring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.polyring" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS polyring constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(polyring), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.polyring">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.polyring</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.rectstrip">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">rectstrip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#rectstrip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.rectstrip" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS rectstrip constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(rectstrip), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.rectstrip">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.rectstrip</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.res2fresnel">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">res2fresnel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">juliacall.VectorValue</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tepfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#res2fresnel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.res2fresnel" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS <cite>res2fresnel</cite> function.  Creates an HFSS SBR+-compatible
+Fresnel table from a PSSFSS result file, or from the vector of results returned by the
+analyze function. For detailed documentation, type doc(res2fresnel) or see the Julia PSSFSS
+version documentation at
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2fresnel">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2fresnel</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.res2tep">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">res2tep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">juliacall.VectorValue</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tepfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tep'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'res2tep'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/pypssfss/pypssfss.html#res2tep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.res2tep" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS res2tep function.  Creates a Ticra-compatible
+TEP file from a PSSFSS result file, or from the vector of results returned by the
+analyze function. For detailed documentation, type doc(res2tep) or see the Julia PSSFSS
+version documentation at
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2tep">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2tep</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.sinuous">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">sinuous</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#sinuous"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.sinuous" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS sinuous constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(sinuous), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sinuous">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sinuous</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.splitring">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">splitring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#splitring"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.splitring" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS splitring constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(splitring), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.splitring">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.splitring</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pypssfss.sympixels">
+<span class="sig-prename descclassname"><span class="pre">pypssfss.</span></span><span class="sig-name descname"><span class="pre">sympixels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">RWGSheet</span></span></span><a class="reference internal" href="../../_modules/pypssfss/sheets.html#sympixels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pypssfss.sympixels" title="Link to this definition"></a></dt>
+<dd><p>Wrapper function for the Julia PSSFSS sympixels constructor. For detailed documentation of the Julia PSSFSS
+version, type doc(sympixels), or see
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sympixels">https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sympixels</a> .
+Note that where the Julia documentation refers to the “class” keyword argument, here “clas” must be substituted
+to avoid infringing on the Python builtin keyword.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Peter S. Simon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+pypssfss
+========
+
+.. py:module:: pypssfss
+
+.. autoapi-nested-parse::
+
+   Python wrapper for Julia's PSSFSS package
+
+   This package provides Python wrappers for Julia's PSSFSS package, enabling functionality for analyzing radomes,
+   frequency selective surfaces, polarization selective surfaces, metasurfaces, reflectarray elements, and similar
+   structures.
+
+   It is not necessary to install Julia prior to using this package.  If Julia is not in the user's path
+   then it will be installed automatically.  If pypssfss is installed in a Python virtual environment, then the Julia
+   installation will also be private to that environment. Similarly, PSSFSS will be automatically installed, if required.
+
+   **The extensive documentation of PSSFSS at https://simonp0420.github.io/PSSFSS.jl/stable is required reading
+   in order to use this package effectively.**
+
+   Important differences in the pypssfss wrapper package compared to the Julia PSSFSS package:
+
+   - Since Python lacks built-in named tuples, steering is specified by calling one of the functions ThetaPhi, PhiTheta, Psi1Psi2,
+     or Psi2Psi1.
+   - Since Python doesn't have macros, the @outputs macro functionality of PSSFSS is replaced by the atoutputs function in Python.
+   - Plotting of sheet triangulations from Python is done via the plot_sheet function exported by this package.
+
+   The extensive Julia markdown-formatted help strings for wrapped Julia functions can be pretty-printed to the user's
+   console using the doc function exported by this package.  E.g. `doc(analyze)` or `doc(diagstrip)`. **This Julia documentation
+   available via the doc function is essential for intelligently using the Python package.**
+
+   Modules:
+
+   - pypssfss: Core functionality and wrappers
+   - sheets: Sheet definitions and plotting
+   - steering: Steering definitions
+
+
+
+
+
+Package Contents
+----------------
+
+.. py:function:: analyze(strata: list, flist, steering: pypssfss.steering.ThetaPhi | pypssfss.steering.PhiTheta | pypssfss.steering.Psi1Psi2 | pypssfss.steering.Psi2Psi1, **kwargs)
+
+   Python wrapper for the `analyze` function of the Julia PSSFSS package.
+
+   Differences from the Julia version:
+
+   - Named tuples containing the steering parameters must be created using the `ThetaPhi`, `PhiTheta`,
+     `Psi1Psi2`, or `Psi2Psi1` functions.
+
+   For detailed documentation from the Julia version, type `doc(analyze)` or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze
+
+
+.. py:function:: atoutputs(string: str) -> tuple
+
+   Wrapper function for the @outputs macro of the Julia PSSFSS package.  See the Outputs
+   section of the PSSFSS user manual at
+   https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Outputs for details of usage.
+   The atoutputs function accepts arguments to be passed to @outputs in the form of a
+   single string.  E.g.
+
+       outrequests = atoutputs('FGHz theta s21dB(L,v) s21dB(R,V)')
+
+   All of the `@outputs` parameters listed in the Julia PSSFSS documentation at
+   https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Table-of-Valid-@outputs-Parameters
+   are available to use in the atoutputs function except for those that return complex
+   values: s11, s12, s21, and s22.  Instead, one should request the real and imaginary parts
+   (or the magnitude and phase) separately and combine these to form the desired complex value.
+
+
+.. py:function:: diagstrip(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS diagstrip constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(diagstrip), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.diagstrip .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: doc(arg)
+
+   Pretty-print the Julia markdown documentation for a wrapped function to the user's console. For example,
+   typing
+
+   >>> import pypssfss as pf
+   >>> pf.doc(pf.analyze)
+
+   will generate a richly formatted printout of the Julia PSSFSS analyze function to the user's console.
+
+
+.. py:function:: extract_result(results: juliacall.VectorValue | juliacall.ArrayValue, outreq: tuple) -> numpy.array
+
+   Wrapper function for the Julia PSSFSS extract_result function.  Returns a numpy array.
+   For detailed documentation, type `doc(extract_result)` or see the Julia PSSFSS version
+   documentation at
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.extract_result
+
+
+.. py:function:: jerusalemcross(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS jerusalemcross constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(jerusalemcross), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.jerusalemcross .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: Layer(**kwargs)
+
+   Python wrapper for the Layer constructor method of the Julia PSSFSS package.
+
+   Differences from the Julia version:
+
+   - Layer widths must be expressed as a number (i.e. a literal number or numeric variable) multiplied
+     by a length unit using an explicit asterisk.  Examples:
+
+         - `width = 10*mm`
+         - `width = 0.1*inch`
+         - `w = 0.03; width = w*cm`
+         - `w = 0.03*cm; width = w`
+
+   For detailed documentation from the Julia version, type doc(Layer) or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Layers.Layer
+
+
+.. py:function:: loadedcross(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS loadedcross constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(loadedcross), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.loadedcross .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: manji(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS manji constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(manji), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.manji .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: meander(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS meander constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(meander), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.meander .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: pecsheet() -> RWGSheet
+
+   Return a variable of type RWGSheet that contains a perfect electric conducting sheet (i.e. an "E-wall").
+
+
+.. py:function:: pixels(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS pixels constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(pixels), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.pixels .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: plot_sheet(sheet, edges=True, faces=False, nodes=False, edgenumbers=False, facenumbers=False, nodenumbers=False, edgecolor='red', facecolor='red', nodecolor='black', unitcellcolor='blue', unitcell=False, rep=(1, 1), fontsize=9, linewidth=1.5)
+
+   Plot an RWGSheet object using Matplotlib.  This function must be followed by a call to matplotlib.pyplot.show()
+   to make the plot visible.
+
+   Parameters (all but `sheet` are optional keyword arguments):
+       sheet: RWGSheet
+           The sheet object to plot.
+       edges=True, faces=False, nodes=False: bool
+           Whether to plot edges, faces, or nodes.
+       edgenumbers=False, facenumbers=False, nodenumbers=False: bool
+           Whether to annotate edges, faces, or nodes with their indices.
+       edgecolor='red', facecolor='red', nodecolor='black', unitcellcolor='blue': str,
+           Colors to use for the plotted items.
+       unitcell=False: bool
+           Whether to plot the unit cell boundary.
+       rep: tuple
+           A 2-tuple of positive integers giving the number of repetitions to display in the two periodic directions.
+       fontsize: int
+           Font size for annotations.
+
+
+.. py:function:: pmcsheet() -> RWGSheet
+
+   Return a variable of type RWGSheet that contains a perfect magnetic conducting sheet (i.e. an "H-wall").
+
+
+.. py:function:: polyring(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS polyring constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(polyring), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.polyring .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: rectstrip(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS rectstrip constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(rectstrip), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.rectstrip .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: res2fresnel(results: juliacall.VectorValue | str, tepfile: str) -> None
+
+   Wrapper function for the Julia PSSFSS `res2fresnel` function.  Creates an HFSS SBR+-compatible
+   Fresnel table from a PSSFSS result file, or from the vector of results returned by the
+   analyze function. For detailed documentation, type doc(res2fresnel) or see the Julia PSSFSS
+   version documentation at
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2fresnel
+
+
+.. py:function:: res2tep(results: juliacall.VectorValue | str, tepfile: str, name='tep', clas='res2tep') -> None
+
+   Wrapper function for the Julia PSSFSS res2tep function.  Creates a Ticra-compatible
+   TEP file from a PSSFSS result file, or from the vector of results returned by the
+   analyze function. For detailed documentation, type doc(res2tep) or see the Julia PSSFSS
+   version documentation at
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2tep
+
+
+.. py:function:: sinuous(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS sinuous constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(sinuous), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sinuous .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: splitring(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS splitring constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(splitring), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.splitring .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+
+.. py:function:: sympixels(**kwargs) -> RWGSheet
+
+   Wrapper function for the Julia PSSFSS sympixels constructor. For detailed documentation of the Julia PSSFSS
+   version, type doc(sympixels), or see
+   https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Elements.sympixels .
+   Note that where the Julia documentation refers to the "class" keyword argument, here "clas" must be substituted
+   to avoid infringing on the Python builtin keyword.
+
+

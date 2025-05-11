@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Examples &mdash; pypssfss 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="pypssfss - Analysis of polarization and frequency selective surfaces in Python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pypssfss
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#imports-used-for-all-examples">Imports Used for All Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#class-a-radome">Class A Radome</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#specify-the-radome-dielectric-layers-in-strata">Specify the radome dielectric layers in <code class="docutils literal notranslate"><span class="pre">strata</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specify-desired-frequencies-and-scan-angles">Specify desired frequencies and scan angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analyze-the-radome-performance">Analyze the radome performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extract-frequency-scan-angle-and-transmission-coefficients-from-computed-results">Extract frequency, scan angle, and transmission coefficients from computed results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-te-transmitted-power-versus-frequency-for-each-scan-angle">Plot TE transmitted power versus frequency for each scan angle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-tm-transmitted-power-versus-frequency-for-each-scan-angle">Plot TM transmitted power versus frequency for each scan angle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#double-square-loop-fss-exported-to-hfss-fresnel-table">Double Square Loop FSS Exported to HFSS Fresnel Table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-and-plot-the-sheet-triangulation">Create and plot the sheet triangulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-the-model-analyze-it-export-results-to-fresnel-table">Complete the model, analyze it, export results to Fresnel table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-usage-examples">Additional Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-of-additional-documentation-from-doc-versus-help">Example of additional documentation from <code class="docutils literal notranslate"><span class="pre">doc</span></code> versus <code class="docutils literal notranslate"><span class="pre">help</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pypssfss</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/example.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage-examples">
+<h1>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h1>
+<section id="imports-used-for-all-examples">
+<h2>Imports Used for All Examples<a class="headerlink" href="#imports-used-for-all-examples" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">analyze</span><span class="p">,</span> <span class="n">atoutputs</span><span class="p">,</span> <span class="n">extract_result</span><span class="p">,</span> <span class="n">inch</span><span class="p">,</span> <span class="n">Layer</span><span class="p">,</span> 
+                      <span class="n">mil</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">plot_sheet</span><span class="p">,</span> <span class="n">polyring</span><span class="p">,</span> <span class="n">res2fresnel</span><span class="p">,</span> <span class="n">ThetaPhi</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="class-a-radome">
+<h2>Class A Radome<a class="headerlink" href="#class-a-radome" title="Link to this heading"></a></h2>
+<p>This example is from from Y. T. Lo and S. W. Lee, <em>Antenna Handbook</em>, pp. 31-17 through 31-18</p>
+<section id="specify-the-radome-dielectric-layers-in-strata">
+<h3>Specify the radome dielectric layers in <code class="docutils literal notranslate"><span class="pre">strata</span></code><a class="headerlink" href="#specify-the-radome-dielectric-layers-in-strata" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skin</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="n">epsr</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">tandel</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">35</span><span class="o">*</span><span class="n">mil</span><span class="p">)</span>
+<span class="n">strata</span> <span class="o">=</span> <span class="p">[</span><span class="n">Layer</span><span class="p">(),</span>
+          <span class="n">skin</span><span class="p">,</span>
+          <span class="n">Layer</span><span class="p">(</span><span class="n">epsr</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">tandel</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.25</span><span class="o">*</span><span class="n">inch</span><span class="p">),</span>
+          <span class="n">skin</span><span class="p">,</span>
+          <span class="n">Layer</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="specify-desired-frequencies-and-scan-angles">
+<h3>Specify desired frequencies and scan angles<a class="headerlink" href="#specify-desired-frequencies-and-scan-angles" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">scan</span> <span class="o">=</span> <span class="n">ThetaPhi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analyze-the-radome-performance">
+<h3>Analyze the radome performance<a class="headerlink" href="#analyze-the-radome-performance" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">analyze</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">scan</span><span class="p">,</span> <span class="n">showprogress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extract-frequency-scan-angle-and-transmission-coefficients-from-computed-results">
+<h3>Extract frequency, scan angle, and transmission coefficients from computed results<a class="headerlink" href="#extract-frequency-scan-angle-and-transmission-coefficients-from-computed-results" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datamat</span> <span class="o">=</span> <span class="n">extract_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">atoutputs</span><span class="p">(</span><span class="s2">&quot;fghz theta s21mag(te,te) s21mag(tm,tm)&quot;</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">thetas</span><span class="p">,</span> <span class="n">s21magte</span><span class="p">,</span> <span class="n">s21magtm</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">datamat</span><span class="p">))</span>
+<span class="n">tepwr</span> <span class="o">=</span> <span class="n">s21magte</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">tmpwr</span> <span class="o">=</span> <span class="n">s21magtm</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-te-transmitted-power-versus-frequency-for-each-scan-angle">
+<h3>Plot TE transmitted power versus frequency for each scan angle<a class="headerlink" href="#plot-te-transmitted-power-versus-frequency-for-each-scan-angle" title="Link to this heading"></a></h3>
+<p>Compare to plot 31-14a on page 31-18 of Lo and Lee.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">thetas</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">==</span> <span class="n">thetas</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">tepwr</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;θ = </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (GHz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional Transmitted Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Class A Radome Power Transmission for TE Pol&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ec74fa14b5e25a684753000722b1803b3b05b920fdbd8abc794429a1d17fa522.png" src="_images/ec74fa14b5e25a684753000722b1803b3b05b920fdbd8abc794429a1d17fa522.png" />
+</div>
+</div>
+</section>
+<section id="plot-tm-transmitted-power-versus-frequency-for-each-scan-angle">
+<h3>Plot TM transmitted power versus frequency for each scan angle<a class="headerlink" href="#plot-tm-transmitted-power-versus-frequency-for-each-scan-angle" title="Link to this heading"></a></h3>
+<p>Compare to plot 31-14b on page 31-18 of Lo and Lee.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">thetas</span><span class="p">):</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">==</span> <span class="n">thetas</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">tmpwr</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;θ = </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (GHz)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional Transmitted Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Class A Radome Power Transmission for TM Pol&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4aa07c6f11ad169be65acb57deb5aa915064986895081866c5e3964814456626.png" src="_images/4aa07c6f11ad169be65acb57deb5aa915064986895081866c5e3964814456626.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="double-square-loop-fss-exported-to-hfss-fresnel-table">
+<h2>Double Square Loop FSS Exported to HFSS Fresnel Table<a class="headerlink" href="#double-square-loop-fss-exported-to-hfss-fresnel-table" title="Link to this heading"></a></h2>
+<p>This example is adapted from “Antenna Radome SBR+ Using Fresnel Boundary” beginning on the page labeled “1-66” of the 2024R2 HFSS Help PDF file.</p>
+<section id="create-and-plot-the-sheet-triangulation">
+<h3>Create and plot the sheet triangulation<a class="headerlink" href="#create-and-plot-the-sheet-triangulation" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.125</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.125</span><span class="p">])</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">polyring</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">mm</span><span class="p">,</span> <span class="n">sides</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">s1</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">s2</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">ntri</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sheet</span><span class="p">)</span>
+<span class="n">plot_sheet</span><span class="p">(</span><span class="n">sheet</span><span class="p">,</span> <span class="n">unitcell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Double Square Ring for Fresnel Table Example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RWGSheet: style=polyring, class=J, 1136 nodes, 3032 edges, 1896 faces, Zs=0.0 + 0.0im Ω
+</pre></div>
+</div>
+<img alt="_images/a23359b0510544718e26acf748d63665a348474b84fe0aaa699961d452d75b78.png" src="_images/a23359b0510544718e26acf748d63665a348474b84fe0aaa699961d452d75b78.png" />
+</div>
+</div>
+</section>
+<section id="complete-the-model-analyze-it-export-results-to-fresnel-table">
+<h3>Complete the model, analyze it, export results to Fresnel table<a class="headerlink" href="#complete-the-model-analyze-it-export-results-to-fresnel-table" title="Link to this heading"></a></h3>
+<p>Analysis takes about one minute on a core i7-14700 CPU</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dwidth</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">mm</span>
+<span class="n">duroid</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="n">epsr</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">tandel</span><span class="o">=</span><span class="mf">0.0009</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">dwidth</span><span class="p">)</span>
+<span class="n">strata</span> <span class="o">=</span> <span class="p">[</span><span class="n">Layer</span><span class="p">(),</span>
+          <span class="n">duroid</span><span class="p">,</span>
+          <span class="n">sheet</span><span class="p">,</span> 
+          <span class="n">duroid</span><span class="p">,</span> 
+          <span class="n">Layer</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dwidth</span><span class="p">)]</span> <span class="c1"># Note width of final layer = negative sum of all other layer widths!</span>
+<span class="n">steering</span> <span class="o">=</span> <span class="n">ThetaPhi</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">analyze</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">steering</span><span class="p">,</span> <span class="n">resultfile</span><span class="o">=</span><span class="s2">&quot;double_square_loop.res&quot;</span><span class="p">,</span> <span class="n">showprogress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">res2fresnel</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;double_square_loop.rttbl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># View first few lines of the Fresnel Table file:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;double_square_loop.rttbl&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># HFSS-compatible Fresnel reflection/transmission table created by PSSFSS
+# Created on 2025-05-11 at 23:15:25.211
+RTTable
+# &lt;num_theta_step&gt; = &lt;number_of_points&gt; - 1
+18
+# MultiFreq &lt;freq_start_ghz&gt; &lt;freq_stop_ghz&gt; &lt;num_freq_steps&gt;
+MultiFreq 10.0 20.0 5
+# Data section follows. Frequency loops within theta
+#&lt;rte_rl&gt; &lt;rte_im&gt; &lt;rtm_rl&gt; &lt;rtm_im&gt; &lt;tte_rl&gt; &lt;tte_im&gt; &lt;ttm_rl&gt; &lt;ttm_im&gt;
+-0.47242  0.75964  0.47242 -0.75964  0.10767 -0.43144  0.10767 -0.43144
+0.22820  0.96687 -0.22820 -0.96687 -0.02490 -0.08788 -0.02490 -0.08788
+0.73141  0.01690 -0.73141 -0.01690  0.66104  0.13868  0.66104  0.13868
+0.13295 -0.23622 -0.13295  0.23622  0.77974 -0.55881  0.77974 -0.55881
+-0.01826 -0.07712  0.01826  0.07712  0.43567 -0.89342  0.43567 -0.89342
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="additional-usage-examples">
+<h2>Additional Usage Examples<a class="headerlink" href="#additional-usage-examples" title="Link to this heading"></a></h2>
+<p>There are many additional examples in the <a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/examples/">Usage Examples</a>
+section of the PSSFSS documentation. Also, be sure to check out the
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/PSS_&amp;amp;_FSS_Element_Gallery/">Element Gallery</a> that illustrates the
+range of FSS/PSS geometries supported by <code class="docutils literal notranslate"><span class="pre">pypssfss</span></code>.  Each entry in the gallery is a so-called “demo card”.
+Clicking on a card opens a page showing the code used to create the element.</p>
+</section>
+<section id="example-of-additional-documentation-from-doc-versus-help">
+<h2>Example of additional documentation from <code class="docutils literal notranslate"><span class="pre">doc</span></code> versus <code class="docutils literal notranslate"><span class="pre">help</span></code>:<a class="headerlink" href="#example-of-additional-documentation-from-doc-versus-help" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">res2fresnel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function res2fresnel in module pypssfss.pypssfss:
+
+res2fresnel(results: juliacall.VectorValue | str, tepfile: str) -&gt; None
+    Wrapper function for the Julia PSSFSS `res2fresnel` function.  Creates an HFSS SBR+-compatible
+    Fresnel table from a PSSFSS result file, or from the vector of results returned by the
+    analyze function. For detailed documentation, type doc(res2fresnel) or see the Julia PSSFSS
+    version documentation at
+    https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2fresnel
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="kn">import</span> <span class="n">doc</span>
+<span class="n">doc</span><span class="p">(</span><span class="n">res2fresnel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="background-color: #272822">                                                                                                                   </span>
+<span style="background-color: #272822"> </span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">res2fresnel(results::Vector{Result}, fresnelfile::AbstractString)</span><span style="background-color: #272822">                                                 </span>
+<span style="background-color: #272822"> </span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">res2fresnel(resultfile::AbstractString, fresnelfile::AbstractString)</span><span style="background-color: #272822">                                              </span>
+<span style="background-color: #272822">                                                                                                                   </span>
+
+Create an HFSS-compatible "Fresnel table" file from <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">results</span>, the vector of <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">Result</span> objects returned by  the <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">analyze</span> 
+function.  If the first positional argument is an <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">AbstractString</span>, it is  assumed to be the name of a PSSFSS results
+file, from which the vector of results will be read.                                                               
+
+Since Fresnel tables contain data for only a single ϕ value, if the input <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">result</span> vector contains data for multiple 
+ϕ values, only the value with minimum magnitude will be used.                                                      
+
+Fresnel tables may be formatted to contain only reflection coefficients (for a so-called "opaque" structure), or   
+they  may contain both reflection and transmission coefficients (a "non-opaque" structure). An opaque structure is 
+one for which the s21 partition of the generalized scattering matrix is identically zero  for all frequencies and  
+scan angles.  The correct format to be written will be selected automatically by <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">res2fresnel</span>.                      
+
+
+                                   <span style="font-weight: bold; text-decoration: underline">Requirements for Fresnel Table Compatibility</span>                                    
+
+The data in <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">results</span> must satisfy the following requirements:                                                       
+
+<span style="color: #808000; text-decoration-color: #808000; font-weight: bold"> 1 </span>Incidence angles rather than incremental phasings must be used.                                                 
+<span style="color: #808000; text-decoration-color: #808000; font-weight: bold"> 2 </span>θ angles must begin at 0 and be uniformly spaced up to the maximum θ value present.                             
+<span style="color: #808000; text-decoration-color: #808000; font-weight: bold"> 3 </span>The increment in θ values must divide evenly into 90.                                                           
+<span style="color: #808000; text-decoration-color: #808000; font-weight: bold"> 4 </span>If multiple frequencies are present, then they must have a uniform spacing.                                     
+
+A Fresnel table must contain θ values equally spaced between 0 and 90, inclusive.   If the <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">results</span> vector provided 
+as input does not contain θ values all the way to 90, then the scattering matrix values  corresponding to the      
+maximum provided θ value will be copied into the remaining angular "slots" as necessary to provide  a complete     
+Fresnel table.                                                                                                     
+
+There are some limitations on the type of unit cell geometry that should be used for creating Fresnel tables.      
+First, a Fresnel  table contains data for only a single ϕ value.  This means that the geometry being analyzed must 
+be such that the scattering matrix of the structure is essentially independent of ϕ.  As a counterexample, a strip 
+grid is not a suitable structure, since its scattering properties are strongly dependent on ϕ.  Second, a Fresnel  
+table records only co-polarized (TE → TE and TM → TM) transmission and reflection coefficients.  This means that   
+the structure being analyzed must not  generate cross-polarized (TE → TM or TM → TE) transmission or reflection    
+coefficients of significant amplitude.                                                                             
+
+Fresnel tables consider only incidence from a single "front" region. When creating the Fresnel table, the front    
+region is taken  to be Region 1 of the PSSFSS model (i.e. the first layer present in the PSSFSS <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">strata</span> vector).    
+
+                                 <span style="font-weight: bold">Additional Requirements for Non-Opaque Structures</span>                                 
+
+When used in an HFSS SBR+ model, the scattering properties read from the Fresnel table are applied to a            
+zero-thickness surface, so that the transmitted ray is launched from the same "hit" point of the surface that was  
+encountered by the incident  ray. Because of this, the phase reference plane for both input and output ports of the
+PSSFSS model should be located  at this front surface (i.e. the first interface plane in the <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">strata</span> vector).  This 
+is accomplished by specifying zero  width for the first <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">Layer</span> object (i.e. using <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">Layer()</span> for the first layer), and 
+then specifying the final layer's width to be the negative of the sum of all the other layer widths in the <span style="color: #008080; text-decoration-color: #008080; background-color: #000000; font-weight: bold">strata</span>  
+vector. The negative width value shifts the output port reference plane to coincide with that of the input port.   
+As an example:                                                                                                     
+
+<span style="background-color: #272822">                                                                                                                   </span>
+<span style="background-color: #272822"> </span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">strata </span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822"> [Layer(), Layer(width</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">2</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">mm, ϵᵣ</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">2.2</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">) Layer(width</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">3.3</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">mm, ϵᵣ</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">3.0</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">), Layer(width</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">2</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">mm, ϵᵣ</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">2.2</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">), </span><span style="background-color: #272822">                </span>
+<span style="background-color: #272822"> </span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">Layer(width</span><span style="color: #ff4689; text-decoration-color: #ff4689; background-color: #272822">=-</span><span style="color: #ae81ff; text-decoration-color: #ae81ff; background-color: #272822">7.3</span><span style="color: #f8f8f2; text-decoration-color: #f8f8f2; background-color: #272822">mm)]</span><span style="background-color: #272822">                                                                                              </span>
+<span style="background-color: #272822">                                                                                                                   </span>
+</pre>
+</div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="pypssfss - Analysis of polarization and frequency selective surfaces in Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Peter S. Simon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

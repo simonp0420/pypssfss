@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pypssfss - Analysis of polarization and frequency selective surfaces in Python &mdash; pypssfss 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage Examples" href="example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            pypssfss
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pypssfss</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pypssfss - Analysis of polarization and frequency selective surfaces in Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pypssfss-analysis-of-polarization-and-frequency-selective-surfaces-in-python">
+<h1>pypssfss - Analysis of polarization and frequency selective surfaces in Python<a class="headerlink" href="#pypssfss-analysis-of-polarization-and-frequency-selective-surfaces-in-python" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a> is a Python package for analyzing planar
+<a class="reference external" href="https://scholar.google.com/scholar?hl=en&amp;amp;as_sdt=0%2C5&amp;amp;q=polarization+selective+surface&amp;amp;btnG=">polarization selective surfaces</a> (PSSs), <a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_selective_surface">frequency selective surfaces</a> (FSSs),
+<a class="reference external" href="https://en.wikipedia.org/wiki/Reflectarray_antennahttps://en.wikipedia.org/wiki/Reflectarray_antenna">reflectarray</a> elements,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Radome">radomes</a>, and similar structures.  It wraps the
+<a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a> package which is written in the <a class="reference external" href="https://julialang.org/">Julia</a>
+programming language.  Note that it is not necessary to preinstall Julia or <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a>
+before using <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a>.  If Julia is not found in the user’s PATH, then
+<a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a> will install it (locally to a virtual environment, if one is active). Similarly, it will automatically install and compile <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a> on first use.</p>
+<p>To use <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a>, one first specifies the geometry to be analyzed as a Python
+<code class="docutils literal notranslate"><span class="pre">list</span></code> containing two or more dielectric <code class="docutils literal notranslate"><span class="pre">Layer</span></code>s and zero or more <code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> objects that define the PSS/FSS surfaces.
+Due to the included <code class="docutils literal notranslate"><span class="pre">plot_sheet</span></code> function, FSS/PSS surface triangulations can be conveniently visualized using the standard
+<a class="reference external" href="https://matplotlib.org/stable/index.html"><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></a> library. After also specifying the frequencies to be analyzed
+and scan angles (or unit cell incremental phasings), the user then invokes the <code class="docutils literal notranslate"><span class="pre">analyze</span></code> function
+to perform the analysis.  Post-processing and plotting of results can be performed in the same Python analysis script.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Designed to be useful and accessible to working engineers and students.</p></li>
+<li><p>Accommodates planar FSS/PSS surfaces with no limits to number of dielectric layers or FSS/PSS sheets.</p></li>
+<li><p>Automatically chooses number of modes needed for cascading multiple FSS/PSS sheets using
+generalized scattering matrices (GSMs).</p></li>
+<li><p>Supports (approximate) cascading multiple sheets of different periodicities, as in a multilayer
+meanderline polarizer.</p></li>
+<li><p>Simple specification of geometry to be analyzed.</p></li>
+<li><p>Solution of mixed-potential integral equation using Rao-Wilton-Glisson triangle subdomain basis functions
+and multi-threaded method of moments.</p></li>
+<li><p>Fast analysis for frequency sweeps using an extremely robust rational function interpolation algorithm.</p></li>
+<li><p>Automatic triangulation of sheet geometries to user-specified number of triangles.</p></li>
+<li><p>Exploits redundancies inherent in structured meshes for greater numerical efficiency.</p></li>
+<li><p>Easy extraction of useful engineering performance parameters, including</p>
+<ul>
+<li><p>Reflection and transmission coefficient magnitudes and/or phases for the field components of</p>
+<ul>
+<li><p>TE/TM</p></li>
+<li><p>Vertical/horizontal (Ludwig 3)</p></li>
+<li><p>LHCP/RHCP (circular polarization)</p></li>
+</ul>
+</li>
+<li><p>Delta insertion phase delay (ΔIPD)</p></li>
+<li><p>Delta insertion loss (ΔIL)</p></li>
+<li><p>Axial ratio</p></li>
+</ul>
+</li>
+<li><p>FSS/PSS element geometry can be exported to STL files for later import into CAD programs.</p></li>
+<li><p>Analysis results can be exported to</p>
+<ul>
+<li><p>HFSS SBR+-compatible Fresnel tables</p></li>
+<li><p>TICRA-compatible TEP (tabulated electrical properties) files.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Only zero-thickness FSS/PSS sheets are currently supported.</p></li>
+<li><p>Frequency sweeps are fastest for normal incidence or for the case where unit cell incremental phase shifts ψ₁ and ψ₂ are
+constant with frequency (as in a waveguide).  This is due to the use of a wide-band expansion of the
+potential Green’s functions for a stratified medium with quasi-periodic excitation. Frequency sweeps for non-normal
+angle of incidence are typically slower. However, as of <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> version 1.1, all frequency sweeps are now much faster,
+often by more than an order of magnitude, compared to previous versions.  The speedup is due to the use of a fast interpolated sweep by default.</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="installing-using-pip">
+<h3>Installing Using pip<a class="headerlink" href="#installing-using-pip" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pypssfss
+</pre></div>
+</div>
+</section>
+<section id="installing-from-the-base-repository">
+<h3>Installing from the base repository<a class="headerlink" href="#installing-from-the-base-repository" title="Link to this heading"></a></h3>
+<p>Activate Python environment and then clone and install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/simonp0420/pypssfss.git
+<span class="nb">cd</span><span class="w"> </span>pypssfss
+pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="example.html" class="btn btn-neutral float-right" title="Usage Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Peter S. Simon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
