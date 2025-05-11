@@ -23,8 +23,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install sphinx sphinx-rtd-theme
-          pip install .[dev]
+          pip install sphinx sphinx-rtd-theme myst_nb sphinx-autoapi sphinx-rtd-theme
+          pip install .
 
       # Build the Sphinx documentation
       - name: Build documentation
