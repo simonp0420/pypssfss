@@ -1,23 +1,22 @@
-# pypssfss
+# pypssfss - Analysis of polarization and frequency selective surfaces in Python
 
-Python wrapper for the Julia [`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) package. Allows Python
-programmers to access all of the power of `PSSFSS` from a pure Python script. Note that 
-it is not necessary to preinstall Julia or `PSSFSS` before using `pypssfss`.  If Julia is not found in your PATH, then
-`pypssfss` will install it (locally to a virtual environment, if one is active).  Similarly, it will automatically install
-`PSSFSS` on first use.
 
-[`pypssfss`] is a package for analyzing planar 
+[`pypssfss`](https://github.com/simonp0420/pypssfss) is a Python package for analyzing planar 
 [polarization selective surfaces](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=polarization+selective+surface&btnG=) (PSSs), [frequency selective surfaces](https://en.wikipedia.org/wiki/Frequency_selective_surface) (FSSs), 
 [reflectarray](https://en.wikipedia.org/wiki/Reflectarray_antennahttps://en.wikipedia.org/wiki/Reflectarray_antenna) elements, 
-[radomes](https://en.wikipedia.org/wiki/Radome), and similar structures.  It is intended to be useful to antenna design engineers and others who work in applied electromagnetic engineering.
+[radomes](https://en.wikipedia.org/wiki/Radome), and similar structures.  It wraps the 
+[`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) package which is written in the [Julia](https://julialang.org/)
+programming language.  Note that it is not necessary to preinstall Julia or [`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl)
+before using [`pypssfss`](https://github.com/simonp0420/pypssfss).  If Julia is not found in the user's PATH, then 
+[`pypssfss`](https://github.com/simonp0420/pypssfss) will install it (locally to a virtual environment, if one is active). Similarly, it will automatically install and compile [`PSSFSS`](https://github.com/simonp0420/PSSFSS.jl) on first use.
 
-The user specifies the geometry to be analyzed as a `list` containing two or more dielectric `Layer`s 
-and zero or more `RWGSheet` objects that define the PSS/FSS surfaces.  Due to the included `plot_sheet` function, 
-the surface triangulations can be conveniently visualized using the standard 
-[`Matplotlib`](https://matplotlib.org/stable/index.html) library. After also specifying the scan angles or
-unit cell incremental phasings, frequencies to be analyzed, the user then invokes the `analyze` function 
+
+To use [`pypssfss`](https://github.com/simonp0420/pypssfss), one first specifies the geometry to be analyzed as a Python
+`list` containing two or more dielectric `Layer`s and zero or more `RWGSheet` objects that define the PSS/FSS surfaces.
+Due to the included `plot_sheet` function, FSS/PSS surface triangulations can be conveniently visualized using the standard 
+[`Matplotlib`](https://matplotlib.org/stable/index.html) library. After also specifying the frequencies to be analyzed
+and scan angles (or unit cell incremental phasings), the user then invokes the `analyze` function 
 to perform the analysis.  Post-processing and plotting of results can be performed in the same Python analysis script.
-
 
 ## Features
 

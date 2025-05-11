@@ -5,6 +5,7 @@ It provides Python wrappers for Julia's PSSFSS package, including functions for 
 extracting results, and converting data formats. 
 
 Available functions:
+
 - analyze
 - atoutputs
 - doc
@@ -12,7 +13,6 @@ Available functions:
 - Layer
 - res2tep
 - res2fresnel
-- atoutputs
 """
 import juliapkg as jp
 jp.require_julia('1.10')
@@ -44,6 +44,7 @@ def Layer(**kwargs):
     Python wrapper for the Layer constructor method of the Julia PSSFSS package.
 
     Differences from the Julia version:
+
     - Layer widths must be expressed as a number (i.e. a literal number or numeric variable) multiplied
       by a length unit using an explicit asterisk.  Examples:
 
@@ -71,13 +72,14 @@ def analyze(strata: list,
             steering: ThetaPhi | PhiTheta | Psi1Psi2 | Psi2Psi1,
             **kwargs):
     """
-    Python wrapper for the analyze function of the Julia PSSFSS package.
+    Python wrapper for the `analyze` function of the Julia PSSFSS package.
 
     Differences from the Julia version:
-    - Named tuples containing the steering parameters must be created using the ThetaPhi, PhiTheta,
-      Psi1Psi2, or Psi2Psi1 functions.
 
-    For detailed documentation from the Julia version, type doc(analyze) or see 
+    - Named tuples containing the steering parameters must be created using the `ThetaPhi`, `PhiTheta`,
+      `Psi1Psi2`, or `Psi2Psi1` functions.
+
+    For detailed documentation from the Julia version, type `doc(analyze)` or see 
     https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze
     """
 
@@ -117,6 +119,7 @@ def atoutputs(string: str) -> tuple:
     https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Outputs for details of usage.
     The atoutputs function accepts arguments to be passed to @outputs in the form of a 
     single string.  E.g. 
+
         outrequests = atoutputs('FGHz theta s21dB(L,v) s21dB(R,V)')
 
     All of the `@outputs` parameters listed in the Julia PSSFSS documentation at
@@ -131,7 +134,7 @@ def atoutputs(string: str) -> tuple:
 def extract_result(results: VectorValue | ArrayValue, outreq: tuple) -> np.array:
     """
     Wrapper function for the Julia PSSFSS extract_result function.  Returns a numpy array.
-    For detailed documentation, type doc(extract_result) or see the Julia PSSFSS version 
+    For detailed documentation, type `doc(extract_result)` or see the Julia PSSFSS version 
     documentation at 
     https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.extract_result
     """
@@ -146,8 +149,6 @@ def res2tep(results: VectorValue | str, tepfile: str, name="tep", clas="res2tep"
     analyze function. For detailed documentation, type doc(res2tep) or see the Julia PSSFSS
     version documentation at 
     https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.Outputs.res2tep
-    Note that where the Julia documentation references the keyword argument "class", it must 
-    be replaced here by "clas" (to avoid infringing on Python's builtin keyword).
     """
     kwdict = {"name": name, "class": clas}
     jl.res2tep(results, tepfile, **kwdict)
@@ -155,7 +156,7 @@ def res2tep(results: VectorValue | str, tepfile: str, name="tep", clas="res2tep"
 # Python wrapper res2fresnel:
 def res2fresnel(results: VectorValue | str, tepfile: str) -> None:
     """
-    Wrapper function for the Julia PSSFSS res2fresnel function.  Creates an HFSS SBR+-compatible
+    Wrapper function for the Julia PSSFSS `res2fresnel` function.  Creates an HFSS SBR+-compatible
     Fresnel table from a PSSFSS result file, or from the vector of results returned by the 
     analyze function. For detailed documentation, type doc(res2fresnel) or see the Julia PSSFSS
     version documentation at 

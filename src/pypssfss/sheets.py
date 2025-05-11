@@ -78,7 +78,7 @@ class RWGSheet:
 
 
 # Define the Python sheet constructors:
-def diagstrip(**kwargs):
+def diagstrip(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS diagstrip constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(diagstrip), or see
@@ -89,7 +89,7 @@ def diagstrip(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.diagstrip(**kwargs))
 
-def jerusalemcross(**kwargs):
+def jerusalemcross(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS jerusalemcross constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(jerusalemcross), or see
@@ -101,7 +101,7 @@ def jerusalemcross(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.jerusalemcross(**kwargs))
 
-def loadedcross(**kwargs):
+def loadedcross(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS loadedcross constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(loadedcross), or see
@@ -112,7 +112,7 @@ def loadedcross(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.loadedcross(**kwargs))
 
-def manji(**kwargs):
+def manji(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS manji constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(manji), or see
@@ -123,7 +123,7 @@ def manji(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.manji(**kwargs))
 
-def meander(**kwargs):
+def meander(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS meander constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(meander), or see
@@ -134,11 +134,11 @@ def meander(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.meander(**kwargs))
 
-def pecsheet():
+def pecsheet() -> RWGSheet:
     """
     Return a variable of type RWGSheet that contains a perfect electric conducting sheet (i.e. an "E-wall").
     """
-def pixels(**kwargs):
+def pixels(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS pixels constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(pixels), or see
@@ -149,13 +149,13 @@ def pixels(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.pixels(**kwargs))
 
-def pmcsheet():
+def pmcsheet() -> RWGSheet:
     """
     Return a variable of type RWGSheet that contains a perfect magnetic conducting sheet (i.e. an "H-wall").
     """
     return RWGSheet(jl.pmcsheet())
 
-def polyring(**kwargs):
+def polyring(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS polyring constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(polyring), or see
@@ -167,7 +167,7 @@ def polyring(**kwargs):
     return RWGSheet(jl.polyring(**kwargs))
 polyring.__doc__ = jl.seval('@doc polyring')
 
-def rectstrip(**kwargs):
+def rectstrip(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS rectstrip constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(rectstrip), or see
@@ -178,7 +178,7 @@ def rectstrip(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.rectstrip(**kwargs))
 
-def sinuous(**kwargs):
+def sinuous(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS sinuous constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(sinuous), or see
@@ -189,7 +189,7 @@ def sinuous(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.sinuous(**kwargs))
 
-def splitring(**kwargs):
+def splitring(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS splitring constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(splitring), or see
@@ -200,7 +200,7 @@ def splitring(**kwargs):
     fixsheetargs(kwargs)
     return RWGSheet(jl.splitring(**kwargs))
 
-def sympixels(**kwargs):
+def sympixels(**kwargs) -> RWGSheet:
     """
     Wrapper function for the Julia PSSFSS sympixels constructor. For detailed documentation of the Julia PSSFSS
     version, type doc(sympixels), or see
