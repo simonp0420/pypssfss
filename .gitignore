@@ -10,3 +10,6 @@ wheels/
 .venv
 uv.lock
 .coverage
+docs/source/double_square_loop.res
+docs/source/double_square_loop.rttbl
+.vscode/settings.json
