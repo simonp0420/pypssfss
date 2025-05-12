@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>pypssfss - Analysis of polarization and frequency selective surfaces in Python &mdash; pypssfss 0.1.0 documentation</title>
+  <title>PyPSSFSS - Analysis of polarization and frequency selective surfaces in Python &mdash; pypssfss 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage Examples" href="example.html" /> 
+    <link rel="next" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,6 +44,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example.html">Usage Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
@@ -63,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">pypssfss - Analysis of polarization and frequency selective surfaces in Python</li>
+      <li class="breadcrumb-item active">PyPSSFSS - Analysis of polarization and frequency selective surfaces in Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,16 +75,16 @@
            <div itemprop="articleBody">
              
   <section id="pypssfss-analysis-of-polarization-and-frequency-selective-surfaces-in-python">
-<h1>pypssfss - Analysis of polarization and frequency selective surfaces in Python<a class="headerlink" href="#pypssfss-analysis-of-polarization-and-frequency-selective-surfaces-in-python" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a> is a Python package for analyzing planar
+<h1>PyPSSFSS - Analysis of polarization and frequency selective surfaces in Python<a class="headerlink" href="#pypssfss-analysis-of-polarization-and-frequency-selective-surfaces-in-python" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code></a> is a Python package for analyzing planar
 <a class="reference external" href="https://scholar.google.com/scholar?hl=en&amp;amp;as_sdt=0%2C5&amp;amp;q=polarization+selective+surface&amp;amp;btnG=">polarization selective surfaces</a> (PSSs), <a class="reference external" href="https://en.wikipedia.org/wiki/Frequency_selective_surface">frequency selective surfaces</a> (FSSs),
 <a class="reference external" href="https://en.wikipedia.org/wiki/Reflectarray_antennahttps://en.wikipedia.org/wiki/Reflectarray_antenna">reflectarray</a> elements,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Radome">radomes</a>, and similar structures.  It wraps the
 <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a> package which is written in the <a class="reference external" href="https://julialang.org/">Julia</a>
 programming language.  Note that it is not necessary to preinstall Julia or <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a>
-before using <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a>.  If Julia is not found in the user’s PATH, then
-<a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a> will install it (locally to a virtual environment, if one is active). Similarly, it will automatically install and compile <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a> on first use.</p>
-<p>To use <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">pypssfss</span></code></a>, one first specifies the geometry to be analyzed as a Python
+before using <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code></a>.  If Julia is not found in the user’s PATH, then
+<a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code></a> will install it (locally to a virtual environment, if one is active). Similarly, it will automatically install and compile <a class="reference external" href="https://github.com/simonp0420/PSSFSS.jl"><code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code></a> on first use.</p>
+<p>To use <a class="reference external" href="https://github.com/simonp0420/pypssfss"><code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code></a>, one first specifies the geometry to be analyzed as a Python
 <code class="docutils literal notranslate"><span class="pre">list</span></code> containing two or more dielectric <code class="docutils literal notranslate"><span class="pre">Layer</span></code>s and zero or more <code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> objects that define the PSS/FSS surfaces.
 Due to the included <code class="docutils literal notranslate"><span class="pre">plot_sheet</span></code> function, FSS/PSS surface triangulations can be conveniently visualized using the standard
 <a class="reference external" href="https://matplotlib.org/stable/index.html"><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code></a> library. After also specifying the frequencies to be analyzed
@@ -154,9 +155,89 @@ often by more than an order of magnitude, compared to previous versions.  The sp
 pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
-<div class="toctree-wrapper compound">
-</div>
 </section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>The documentation for <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code> is <a class="reference external" href="https://simonp0420.github.io/pypssfss/">here</a>.<br />
+The documentation for the underlying Julia package <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> is <a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/">here</a>.
+<strong>Familiarity with both of these manuals is required for use of <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code></strong>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#background-information">Background Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#differences-in-pypssfss-versus-pssfss">Differences in PyPSSFSS versus PSSFSS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#specifying-the-geometry">Specifying the Geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#length-variables">Length Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#the-layer-constructor">The <code class="docutils literal notranslate"><span class="pre">Layer</span></code> Constructor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#the-rwgsheet-constructors">The <code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="introduction.html#plotting-sheet-triangulations">Plotting Sheet Triangulations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#steering">Steering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#performing-the-analysis">Performing the Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#extracting-performance-parameters">Extracting Performance Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#exporting-results">Exporting Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="example.html#imports-used-for-all-examples">Imports Used for All Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example.html#class-a-radome">Class A Radome</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example.html#specify-the-radome-dielectric-layers-in-strata">Specify the radome dielectric layers in <code class="docutils literal notranslate"><span class="pre">strata</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#specify-desired-frequencies-and-scan-angles">Specify desired frequencies and scan angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#analyze-the-radome-performance">Analyze the radome performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#extract-frequency-scan-angle-and-transmission-coefficients-from-computed-results">Extract frequency, scan angle, and transmission coefficients from computed results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#plot-te-transmitted-power-versus-frequency-for-each-scan-angle">Plot TE transmitted power versus frequency for each scan angle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#plot-tm-transmitted-power-versus-frequency-for-each-scan-angle">Plot TM transmitted power versus frequency for each scan angle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example.html#double-square-loop-fss-exported-to-hfss-fresnel-table">Double Square Loop FSS Exported to HFSS Fresnel Table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="example.html#create-and-plot-the-sheet-triangulation">Create and plot the sheet triangulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example.html#complete-the-model-analyze-it-export-results-to-fresnel-table">Complete the model, analyze it, export results to Fresnel table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="example.html#additional-usage-examples">Additional Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example.html#example-of-additional-documentation-from-doc-versus-help">Example of additional documentation from <code class="docutils literal notranslate"><span class="pre">doc</span></code> versus <code class="docutils literal notranslate"><span class="pre">help</span></code>:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#v0-1-0-2025-05-12">v0.1.0 (2025/05/12)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/pypssfss/index.html">pypssfss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="autoapi/pypssfss/index.html#package-contents">Package Contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.analyze"><code class="docutils literal notranslate"><span class="pre">analyze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.atoutputs"><code class="docutils literal notranslate"><span class="pre">atoutputs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.diagstrip"><code class="docutils literal notranslate"><span class="pre">diagstrip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.doc"><code class="docutils literal notranslate"><span class="pre">doc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.extract_result"><code class="docutils literal notranslate"><span class="pre">extract_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.jerusalemcross"><code class="docutils literal notranslate"><span class="pre">jerusalemcross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.Layer"><code class="docutils literal notranslate"><span class="pre">Layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.loadedcross"><code class="docutils literal notranslate"><span class="pre">loadedcross()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.manji"><code class="docutils literal notranslate"><span class="pre">manji()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.meander"><code class="docutils literal notranslate"><span class="pre">meander()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.pecsheet"><code class="docutils literal notranslate"><span class="pre">pecsheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.pixels"><code class="docutils literal notranslate"><span class="pre">pixels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.plot_sheet"><code class="docutils literal notranslate"><span class="pre">plot_sheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.pmcsheet"><code class="docutils literal notranslate"><span class="pre">pmcsheet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.polyring"><code class="docutils literal notranslate"><span class="pre">polyring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.rectstrip"><code class="docutils literal notranslate"><span class="pre">rectstrip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.res2fresnel"><code class="docutils literal notranslate"><span class="pre">res2fresnel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.res2tep"><code class="docutils literal notranslate"><span class="pre">res2tep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.sinuous"><code class="docutils literal notranslate"><span class="pre">sinuous()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.splitring"><code class="docutils literal notranslate"><span class="pre">splitring()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="autoapi/pypssfss/index.html#pypssfss.sympixels"><code class="docutils literal notranslate"><span class="pre">sympixels()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -164,7 +245,7 @@ pip<span class="w"> </span>install<span class="w"> </span>.
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="example.html" class="btn btn-neutral float-right" title="Usage Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,0 +1,227 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; pypssfss 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage Examples" href="example.html" />
+    <link rel="prev" title="PyPSSFSS - Analysis of polarization and frequency selective surfaces in Python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pypssfss
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background-information">Background Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#differences-in-pypssfss-versus-pssfss">Differences in PyPSSFSS versus PSSFSS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#specifying-the-geometry">Specifying the Geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#length-variables">Length Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-layer-constructor">The <code class="docutils literal notranslate"><span class="pre">Layer</span></code> Constructor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-rwgsheet-constructors">The <code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plotting-sheet-triangulations">Plotting Sheet Triangulations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#steering">Steering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performing-the-analysis">Performing the Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-performance-parameters">Extracting Performance Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exporting-results">Exporting Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="example.html">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pypssfss</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<section id="background-information">
+<h2>Background Information<a class="headerlink" href="#background-information" title="Link to this heading"></a></h2>
+<p>In order to learn how to use <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code> please first read the <a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/">PSSFSS User Manual</a>.  Only after looking over this material will you understand the steps needed to set up a desired geometry, visualize triangulations, perform an analysis, and extract the desired performance parameters from the solution.</p>
+</section>
+<section id="differences-in-pypssfss-versus-pssfss">
+<h2>Differences in PyPSSFSS versus PSSFSS<a class="headerlink" href="#differences-in-pypssfss-versus-pssfss" title="Link to this heading"></a></h2>
+<section id="specifying-the-geometry">
+<h3>Specifying the Geometry<a class="headerlink" href="#specifying-the-geometry" title="Link to this heading"></a></h3>
+<p>The stratified medium to be analyzed is specified as a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> containing 2 or more <code class="docutils literal notranslate"><span class="pre">Layer</span></code> objects and zero or more
+<code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> objects.</p>
+<section id="length-variables">
+<h4>Length Variables<a class="headerlink" href="#length-variables" title="Link to this heading"></a></h4>
+<p>The package exports the following variables that represent lengths: <code class="docutils literal notranslate"><span class="pre">mm</span></code>, <code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">inch</span></code>, <code class="docutils literal notranslate"><span class="pre">mil</span></code>.  To represent
+a length of, say, 0.6 mil, one would type <code class="docutils literal notranslate"><span class="pre">0.6</span> <span class="pre">*</span> <span class="pre">mil</span></code> to perform the necessary multiplication.</p>
+</section>
+<section id="the-layer-constructor">
+<h4>The <code class="docutils literal notranslate"><span class="pre">Layer</span></code> Constructor<a class="headerlink" href="#the-layer-constructor" title="Link to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">Layer</span></code> constructor in this package accepts only ASCII for keyword argument names.  For example:
+<code class="docutils literal notranslate"><span class="pre">Layer(epsr</span> <span class="pre">=</span> <span class="pre">2.2,</span> <span class="pre">tandel</span> <span class="pre">=</span> <span class="pre">0.002,</span> <span class="pre">width</span> <span class="pre">=</span> <span class="pre">1.5*mm)</span></code> to represent a 1.5 millimeter thick dielectric layer with the specified
+relative permittivity and loss tangent.</p>
+</section>
+<section id="the-rwgsheet-constructors">
+<h4>The <code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> Constructors<a class="headerlink" href="#the-rwgsheet-constructors" title="Link to this heading"></a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">RWGSheet</span></code> objects are instantiated by use of one of the constructor methods <code class="docutils literal notranslate"><span class="pre">diagstrip</span></code>,
+<code class="docutils literal notranslate"><span class="pre">jerusalemcross</span></code>, <code class="docutils literal notranslate"><span class="pre">loadedcross</span></code>, <code class="docutils literal notranslate"><span class="pre">manji</span></code>, <code class="docutils literal notranslate"><span class="pre">meander</span></code>, <code class="docutils literal notranslate"><span class="pre">pecsheet</span></code>, <code class="docutils literal notranslate"><span class="pre">pixels</span></code>, <code class="docutils literal notranslate"><span class="pre">pmcsheet</span></code>, <code class="docutils literal notranslate"><span class="pre">polyring</span></code>, <code class="docutils literal notranslate"><span class="pre">rectstrip</span></code>,
+<code class="docutils literal notranslate"><span class="pre">sinuous</span></code>, <code class="docutils literal notranslate"><span class="pre">splitring</span></code>, and <code class="docutils literal notranslate"><span class="pre">sympixels</span></code>.  Examples of all of these are shown in the
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/PSS_&amp;amp;_FSS_Element_Gallery/#PSS-and-FSS-Element-Gallery">Element Gallery</a>
+of the <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> documentation.  Clicking on one of the images in the gallery will open a page showing the code used
+to generate triangulation in the image.  Extensive documentation for these constructors, obtained from the Julia source docstring, and pretty-printed to the user’s terminal, is available by use of the <code class="docutils literal notranslate"><span class="pre">doc</span></code> function exported by this package.
+E.g. <code class="docutils literal notranslate"><span class="pre">doc(manji)</span></code> will provide documentation for the <code class="docutils literal notranslate"><span class="pre">manji</span></code> element.</p>
+<p>Sheet geometry can be exported to STL files using the <code class="docutils literal notranslate"><span class="pre">export_sheet</span></code> method as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pf</span>
+<span class="n">sheet</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">rectstrip</span><span class="p">(</span><span class="o">....</span><span class="p">)</span>
+<span class="n">sheet</span><span class="o">.</span><span class="n">export_sheet</span><span class="p">(</span><span class="s2">&quot;rectstrip.stl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="plotting-sheet-triangulations">
+<h4>Plotting Sheet Triangulations<a class="headerlink" href="#plotting-sheet-triangulations" title="Link to this heading"></a></h4>
+<p>It is important to visualize the triangulation of an FSS/PSS element prior to analysis.  This is easily done with the
+<code class="docutils literal notranslate"><span class="pre">plot_sheet</span></code> function, which uses the standard Matplotlib library.  See <code class="docutils literal notranslate"><span class="pre">help(plot_sheet)</span></code> for more information, and
+the Usage Examples section of this manual for an example of its use.</p>
+</section>
+</section>
+<section id="steering">
+<h3>Steering<a class="headerlink" href="#steering" title="Link to this heading"></a></h3>
+<p>In the Julia version, one would use a named tuple, e.g., <code class="docutils literal notranslate"><span class="pre">steer</span> <span class="pre">=</span> <span class="pre">(θ=0,</span> <span class="pre">ϕ=0)</span></code> to specify a normal incidence case.  Since
+Python lacks named tuples as built-in objects, <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code> exports four constructors <code class="docutils literal notranslate"><span class="pre">ThetaPhi</span></code>, <code class="docutils literal notranslate"><span class="pre">PhiTheta</span></code>, <code class="docutils literal notranslate"><span class="pre">Psi1Psi2</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">Psi2Psi1</span></code> which are used to construct the steering specifyers.  The first two are used to define the θ and ϕ steering
+angles; the second two are used to specify the unit cell incremental phase shifts.  Each accepts two input arguments, which
+may be numeric scalars or iterables, interpreted in degrees.  Some examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span><span class="o">.</span><span class="n">ThetaPhi</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">ThetaPhi(theta=0, phi=0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span><span class="o">.</span><span class="n">ThetaPhi</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">])</span>
+<span class="go">ThetaPhi(theta=range(0, 21, 10), phi=[0, 45])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span><span class="o">.</span><span class="n">PhiTheta</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="go">PhiTheta(phi=[0, 45], theta=range(0, 21, 10))</span>
+</pre></div>
+</div>
+<p>The only difference in the last two examples is the order of execution. If passed to the <code class="docutils literal notranslate"><span class="pre">analyze</span></code> function,
+the final example above would cause ϕ to be incremented in the outmost analysis loop, with the loop over θ nested
+just inside it, and the loop over frequency nested inside the θ loop.  In the <code class="docutils literal notranslate"><span class="pre">ThetaPhi</span></code> examples, θ would be
+the outermost loop.</p>
+</section>
+<section id="performing-the-analysis">
+<h3>Performing the Analysis<a class="headerlink" href="#performing-the-analysis" title="Link to this heading"></a></h3>
+<p>For this, use the <code class="docutils literal notranslate"><span class="pre">analyze</span></code> function, which takes the same positional and optional keyword arguments as the
+Julia version documented <a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/reference/#PSSFSS.analyze">here</a>,
+except for the steering inputs as described previously.  The <code class="docutils literal notranslate"><span class="pre">analyze</span></code> function returns a list of Julia <code class="docutils literal notranslate"><span class="pre">Result</span></code> objects
+which should usually be assigned to a variable for further processing using the <code class="docutils literal notranslate"><span class="pre">extract_result</span></code> function.</p>
+</section>
+<section id="extracting-performance-parameters">
+<h3>Extracting Performance Parameters<a class="headerlink" href="#extracting-performance-parameters" title="Link to this heading"></a></h3>
+<p>Because of the large number of performance parameters that are available to be extracted, the <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> package
+has implemented a tiny Domain Specific Language (DSL) to specify the desired outputs, using the macro facility
+built into Julia. This is implemented in the <code class="docutils literal notranslate"><span class="pre">&#64;outputs</span></code> macro of the <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> package, as documented
+in <a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Requesting-Additional-Outputs">this</a> section of the
+manual (which is essential reading). Here in <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code>, the user must create a string containing the text
+that would be passed to the <code class="docutils literal notranslate"><span class="pre">&#64;outputs</span></code> macro. The string is passed as an argument to the <code class="docutils literal notranslate"><span class="pre">atoutputs</span></code> function
+which returns an object that can be used to retrieve the desired data using the <code class="docutils literal notranslate"><span class="pre">extract_result</span></code> function.
+For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">analyze</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">outrequests</span> <span class="o">=</span> <span class="n">atoutputs</span><span class="p">(</span><span class="s1">&#39;FGHz theta s21dB(L,v) s21dB(R,V)&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">extract_result</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">outrequests</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">extract_result</span></code> function will return a NumPy matrix, each column of which contains the data corresponding to one
+of the items in the string passed to <code class="docutils literal notranslate"><span class="pre">atoutputs</span></code>. There are more examples using the <code class="docutils literal notranslate"><span class="pre">atoutputs</span></code> and <code class="docutils literal notranslate"><span class="pre">extract_result</span></code>
+functions in the Usage Examples section of this manual.</p>
+</section>
+<section id="exporting-results">
+<h3>Exporting Results<a class="headerlink" href="#exporting-results" title="Link to this heading"></a></h3>
+<p>Results can be exported to HFSS SBR+-compatible Fresnel tables using <code class="docutils literal notranslate"><span class="pre">res2fresnel</span></code> or to Ticra-compatible
+TEP files using <code class="docutils literal notranslate"><span class="pre">res2tep</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="PyPSSFSS - Analysis of polarization and frequency selective surfaces in Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="example.html" class="btn btn-neutral float-right" title="Usage Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Peter S. Simon.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

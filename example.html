@@ -22,7 +22,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
-    <link rel="prev" title="pypssfss - Analysis of polarization and frequency selective surfaces in Python" href="index.html" /> 
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,6 +45,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#imports-used-for-all-examples">Imports Used for All Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#class-a-radome">Class A Radome</a><ul>
@@ -239,7 +240,8 @@
 </section>
 <section id="complete-the-model-analyze-it-export-results-to-fresnel-table">
 <h3>Complete the model, analyze it, export results to Fresnel table<a class="headerlink" href="#complete-the-model-analyze-it-export-results-to-fresnel-table" title="Link to this heading"></a></h3>
-<p>Analysis takes about one minute on a core i7-14700 CPU</p>
+<p>This demonstration analysis takes about 12 seconds on a core i7-14700 CPU.  For actual use, one would likely
+choose to analyze more finely in theta, say every 5 degrees, out to a larger maximum value, say 70 degrees: <code class="docutils literal notranslate"><span class="pre">steering</span> <span class="pre">=</span> <span class="pre">ThetaPhi(range(0,</span> <span class="pre">71,</span> <span class="pre">5),</span> <span class="pre">0)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dwidth</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">mm</span>
@@ -249,8 +251,8 @@
           <span class="n">sheet</span><span class="p">,</span> 
           <span class="n">duroid</span><span class="p">,</span> 
           <span class="n">Layer</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">dwidth</span><span class="p">)]</span> <span class="c1"># Note width of final layer = negative sum of all other layer widths!</span>
-<span class="n">steering</span> <span class="o">=</span> <span class="n">ThetaPhi</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">steering</span> <span class="o">=</span> <span class="n">ThetaPhi</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">analyze</span><span class="p">(</span><span class="n">strata</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">steering</span><span class="p">,</span> <span class="n">resultfile</span><span class="o">=</span><span class="s2">&quot;double_square_loop.res&quot;</span><span class="p">,</span> <span class="n">showprogress</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">res2fresnel</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="s2">&quot;double_square_loop.rttbl&quot;</span><span class="p">)</span>
 </pre></div>
@@ -270,19 +272,19 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># HFSS-compatible Fresnel reflection/transmission table created by PSSFSS
-# Created on 2025-05-11 at 23:15:25.211
+# Created on 2025-05-12 at 23:42:22.007
 RTTable
 # &lt;num_theta_step&gt; = &lt;number_of_points&gt; - 1
-18
+9
 # MultiFreq &lt;freq_start_ghz&gt; &lt;freq_stop_ghz&gt; &lt;num_freq_steps&gt;
-MultiFreq 10.0 20.0 5
+MultiFreq 10.0 14.0 2
 # Data section follows. Frequency loops within theta
 #&lt;rte_rl&gt; &lt;rte_im&gt; &lt;rtm_rl&gt; &lt;rtm_im&gt; &lt;tte_rl&gt; &lt;tte_im&gt; &lt;ttm_rl&gt; &lt;ttm_im&gt;
--0.47242  0.75964  0.47242 -0.75964  0.10767 -0.43144  0.10767 -0.43144
-0.22820  0.96687 -0.22820 -0.96687 -0.02490 -0.08788 -0.02490 -0.08788
-0.73141  0.01690 -0.73141 -0.01690  0.66104  0.13868  0.66104  0.13868
-0.13295 -0.23622 -0.13295  0.23622  0.77974 -0.55881  0.77974 -0.55881
--0.01826 -0.07712  0.01826  0.07712  0.43567 -0.89342  0.43567 -0.89342
+-0.47241  0.75965  0.47241 -0.75965  0.10767 -0.43143  0.10767 -0.43143
+0.22824  0.96686 -0.22824 -0.96686 -0.02489 -0.08785 -0.02489 -0.08785
+0.73137  0.01686 -0.73137 -0.01686  0.66109  0.13865  0.66109  0.13865
+-0.48624  0.75348  0.47716 -0.75563  0.10558 -0.42739  0.10279 -0.43440
+0.20804  0.97191 -0.22065 -0.96885 -0.02343 -0.08246 -0.02541 -0.08498
 </pre></div>
 </div>
 </div>
@@ -394,7 +396,7 @@ As an example:
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="pypssfss - Analysis of polarization and frequency selective surfaces in Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
