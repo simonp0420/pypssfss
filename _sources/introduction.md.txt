@@ -23,7 +23,7 @@ relative permittivity and loss tangent.
 `RWGSheet` objects are instantiated by use of one of the constructor methods `diagstrip`,
 `jerusalemcross`, `loadedcross`, `manji`, `meander`, `pecsheet`, `pixels`, `pmcsheet`, `polyring`, `rectstrip`,
 `sinuous`, `splitring`, and `sympixels`.  Examples of all of these are shown in the 
-[Element Gallery](https://simonp0420.github.io/PSSFSS.jl/stable/PSS_&_FSS_Element_Gallery/#PSS-and-FSS-Element-Gallery)
+[Element Gallery](https://simonp0420.github.io/PSSFSS.jl/stable/PSS_&_FSS_Element_Gallery)
 of the `PSSFSS` documentation.  Clicking on one of the images in the gallery will open a page showing the code used
 to generate triangulation in the image.  Extensive documentation for these constructors, obtained from the Julia source docstring, and pretty-printed to the user's terminal, is available by use of the `doc` function exported by this package.
 E.g. `doc(manji)` will provide documentation for the `manji` element.
