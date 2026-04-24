@@ -8,16 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &mdash; pypssfss 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
       <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=01f34227"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -107,7 +107,9 @@
 <section id="length-variables">
 <h4>Length Variables<a class="headerlink" href="#length-variables" title="Link to this heading"></a></h4>
 <p>The package exports the following variables that represent lengths: <code class="docutils literal notranslate"><span class="pre">mm</span></code>, <code class="docutils literal notranslate"><span class="pre">cm</span></code>, <code class="docutils literal notranslate"><span class="pre">inch</span></code>, <code class="docutils literal notranslate"><span class="pre">mil</span></code>.  To represent
-a length of, say, 0.6 mil, one would type <code class="docutils literal notranslate"><span class="pre">0.6</span> <span class="pre">*</span> <span class="pre">mil</span></code> to perform the necessary multiplication.</p>
+a length of, say, 0.6 mil, one would type <code class="docutils literal notranslate"><span class="pre">0.6</span> <span class="pre">*</span> <span class="pre">mil</span></code> to perform the necessary multiplication.  This is contrast
+to the examples in the Julia documentation, where the same length would be written <code class="docutils literal notranslate"><span class="pre">0.6mil</span></code> (in Julia the multiplication
+is implied).</p>
 </section>
 <section id="the-layer-constructor">
 <h4>The <code class="docutils literal notranslate"><span class="pre">Layer</span></code> Constructor<a class="headerlink" href="#the-layer-constructor" title="Link to this heading"></a></h4>
@@ -142,7 +144,7 @@ the Usage Examples section of this manual for an example of its use.</p>
 <h3>Steering<a class="headerlink" href="#steering" title="Link to this heading"></a></h3>
 <p>In the Julia version, one would use a named tuple, e.g., <code class="docutils literal notranslate"><span class="pre">steer</span> <span class="pre">=</span> <span class="pre">(θ=0,</span> <span class="pre">ϕ=0)</span></code> to specify a normal incidence case.  Since
 Python lacks named tuples as built-in objects, <code class="docutils literal notranslate"><span class="pre">PyPSSFSS</span></code> exports four constructors <code class="docutils literal notranslate"><span class="pre">ThetaPhi</span></code>, <code class="docutils literal notranslate"><span class="pre">PhiTheta</span></code>, <code class="docutils literal notranslate"><span class="pre">Psi1Psi2</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">Psi2Psi1</span></code> which are used to construct the steering specifyers.  The first two are used to define the θ and ϕ steering
+and <code class="docutils literal notranslate"><span class="pre">Psi2Psi1</span></code> which are used to construct the steering specifiers.  The first two are used to define the θ and ϕ steering
 angles; the second two are used to specify the unit cell incremental phase shifts.  Each accepts two input arguments, which
 may be numeric scalars or iterables, interpreted in degrees.  Some examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pypssfss</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pf</span>
@@ -157,7 +159,9 @@ may be numeric scalars or iterables, interpreted in degrees.  Some examples:</p>
 <p>The only difference in the last two examples is the order of execution. If passed to the <code class="docutils literal notranslate"><span class="pre">analyze</span></code> function,
 the final example above would cause ϕ to be incremented in the outmost analysis loop, with the loop over θ nested
 just inside it, and the loop over frequency nested inside the θ loop.  In the <code class="docutils literal notranslate"><span class="pre">ThetaPhi</span></code> examples, θ would be
-the outermost loop.</p>
+the outermost loop.  Compare to the description in
+<a class="reference external" href="https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Steering-Choice:-Specify-Incidence-angles">this</a>
+section of the <code class="docutils literal notranslate"><span class="pre">PSSFSS</span></code> manual.</p>
 </section>
 <section id="performing-the-analysis">
 <h3>Performing the Analysis<a class="headerlink" href="#performing-the-analysis" title="Link to this heading"></a></h3>

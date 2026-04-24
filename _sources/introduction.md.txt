@@ -12,7 +12,9 @@ The stratified medium to be analyzed is specified as a Python `list` containing 
 
 #### Length Variables
 The package exports the following variables that represent lengths: `mm`, `cm`, `inch`, `mil`.  To represent
-a length of, say, 0.6 mil, one would type `0.6 * mil` to perform the necessary multiplication.
+a length of, say, 0.6 mil, one would type `0.6 * mil` to perform the necessary multiplication.  This is contrast
+to the examples in the Julia documentation, where the same length would be written `0.6mil` (in Julia the multiplication
+is implied).
 
 #### The `Layer` Constructor
 The `Layer` constructor in this package accepts only ASCII for keyword argument names.  For example:
@@ -44,7 +46,7 @@ the Usage Examples section of this manual for an example of its use.
 ### Steering
 In the Julia version, one would use a named tuple, e.g., `steer = (θ=0, ϕ=0)` to specify a normal incidence case.  Since
 Python lacks named tuples as built-in objects, `PyPSSFSS` exports four constructors `ThetaPhi`, `PhiTheta`, `Psi1Psi2`,
-and `Psi2Psi1` which are used to construct the steering specifyers.  The first two are used to define the θ and ϕ steering
+and `Psi2Psi1` which are used to construct the steering specifiers.  The first two are used to define the θ and ϕ steering
 angles; the second two are used to specify the unit cell incremental phase shifts.  Each accepts two input arguments, which
 may be numeric scalars or iterables, interpreted in degrees.  Some examples:
 
@@ -61,7 +63,9 @@ PhiTheta(phi=[0, 45], theta=range(0, 21, 10))
 The only difference in the last two examples is the order of execution. If passed to the `analyze` function,
 the final example above would cause ϕ to be incremented in the outmost analysis loop, with the loop over θ nested
 just inside it, and the loop over frequency nested inside the θ loop.  In the `ThetaPhi` examples, θ would be 
-the outermost loop.
+the outermost loop.  Compare to the description in 
+[this](https://simonp0420.github.io/PSSFSS.jl/stable/manual/#Steering-Choice:-Specify-Incidence-angles)
+section of the `PSSFSS` manual.
 
 ### Performing the Analysis
 For this, use the `analyze` function, which takes the same positional and optional keyword arguments as the 
